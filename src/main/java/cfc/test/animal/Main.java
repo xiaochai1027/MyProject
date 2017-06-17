@@ -1,4 +1,4 @@
-package cfc.animal;
+package cfc.test.animal;
 
 public class Main {
 

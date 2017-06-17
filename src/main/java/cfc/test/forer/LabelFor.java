@@ -1,4 +1,4 @@
-package cfc.forer;
+package cfc.test.forer;
 
 import static java.lang.System.out;
 

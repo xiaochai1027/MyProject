@@ -1,4 +1,4 @@
-package cfc.forer.test;
+package cfc.test.forer.test;
 
 public class Feibonaqie {
 

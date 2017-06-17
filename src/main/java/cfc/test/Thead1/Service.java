@@ -1,4 +1,4 @@
-package cfc.Thead1;
+package cfc.test.Thead1;
 
 public class Service {
 

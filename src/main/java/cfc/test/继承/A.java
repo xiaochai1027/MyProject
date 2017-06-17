@@ -1,4 +1,4 @@
-package cfc.继承;
+package cfc.test.继承;
 
 public class A extends C{
 

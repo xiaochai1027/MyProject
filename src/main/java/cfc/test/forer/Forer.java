@@ -1,4 +1,4 @@
-package cfc.forer;
+package cfc.test.forer;
 
 public class Forer {
 

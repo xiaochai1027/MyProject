@@ -1,4 +1,4 @@
-package cfc.data;
+package cfc.test.data;
 
 public class Data3 {
 

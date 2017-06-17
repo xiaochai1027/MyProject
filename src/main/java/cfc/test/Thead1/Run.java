@@ -1,6 +1,6 @@
-package cfc.Thead1;
+package cfc.test.Thead1;
 
-import cfc.data.Data1;
+import cfc.test.data.Data1;
 
 public class Run {
 
