@@ -1,0 +1,49 @@
+特殊字符
+ var el = /[~#^$@%&!*.,。，()<>:;'"{}【】  ]/gi;
+javascript:;
+var href = $(this).attr("href");
+
+图片展示
+<% String path=request.getContextPath();%>
+<%=path%>
+<img src=" <%=path%>\static\bookimgs\56b1a5a3N2b5b568b.jpg" alt="" width="150px" height="200px"/>
+
+jstl遍历
+<c:forEach items="${requestScope.bookTypes}" var="BookType">
+<tr>
+<td>${BookType.id}</td>
+<td>${BookType.name}</td>
+<td><a class="delete" href="deleteBookType?id=${BookType.id}">删除</a></td>
+</tr>
+</c:forEach>
+ //   $("form").attr("action", href).submit();
+
+只能输入数字和英文
+onkeyup="value=value.replace(/[\W]/g,'') "onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))
+
+ $.each(data.list, function (index, values) {}
+
+var params = $('form').serialize(); //序列化表单的值
+
+ var d1 = new Date(beginDate.replace(/\-/g, "\/"));
+    var d2 = new Date(endDate.replace(/\-/g, "\/"));
+
+    if (beginDate != "" && endDate != "" && d1 >= d2) {
+         $.MsgBox({
+                    msg: "开始时间不能大于结束时间！",
+                    opacity: .5 //遮罩层透明度，
+                    type: "alert"
+          });
+        return false;
+    }
+    //时间
+     <div class="datediv" style="display:inline">
+                        <input id="beginDate" name="start" class="Wdate" type="text" onFocus="var endDate=$dp.$('endDate');WdatePicker({onpicked:function(){endDate.focus();},dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endDate\')}'})"/>
+                        至
+                        <input id="endDate"name="end"  class="Wdate" type="text" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'beginDate\')}'})"/>
+ </div>
+ .img :hover img { -moz-transform: scale(1.1); -webkit-transform: scale(1.1); -o-transform: scale(1.1); -ms-transform: scale(1.1); }
+
+待处理
+删除无用js
+

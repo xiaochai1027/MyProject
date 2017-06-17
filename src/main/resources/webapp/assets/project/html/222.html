@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-2.3.0.min.css"/>
+    <link rel="stylesheet" href="../them/DT_bootstrap.css"/>
+
+</head>
+<body>
+<!--<div style="padding: 20px;">-->
+    <!--<table id="keeperUserList" class="display table table-striped table-bordered table-hover table-checkable">-->
+        <!--<thead>-->
+        <!--<span style="white-space:pre">	</span><tr>-->
+            <!--<th>-->
+                <!--<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">-->
+                    <!--<input type="checkbox" name="keeperUserGroup-checkable" class="group-checkable" data-set="#sample_1 .checkboxes" />-->
+                    <!--<span></span>-->
+                <!--</label>-->
+            <!--</th>-->
+            <!--<th class="text-center">序号</th>-->
+            <!--<th class="text-center">姓名</th>-->
+            <!--<th class="text-center">性别</th>-->
+            <!--<th class="text-center">手机号码 </th>-->
+            <!--<th class="text-center">所属门店 </th>-->
+            <!--<th class="text-center">所属职位 </th>-->
+            <!--<th class="text-center">账号状态</th>-->
+            <!--<th class="text-center">注册时间 </th>-->
+            <!--<th class="text-center">操作</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody></tbody>-->
+    <!--</table>-->
+<!--</div>-->
+<form action="" id="form">
+    <span name="hahahah">232</span>
+    <input type="hidden" value="232" name="hahahah"/>
+    <input type="text" name="aaaaa" value="hhhhh"/>
+</form>
+<script src="../lib/jquery/js/jquery-1.9.1.min.js"></script>
+<script src="../lib/jquery/datatable/jquery.dataTables.min.js"></script>
+<script src="../lib/jquery/datatable/dataTables.select.js"></script>
+<script src="../lib/bootstrap/js/DT_bootstrap.js"></script>
+<script src="../js/init.js"></script>
+<script>
+//    function initKeeperUserListTable() {
+//
+//        keeperUserList = $('#keeperUserList').DataTable({
+//            // ajax配置为function,手动调用异步查询
+//            ajax : {
+//                type: "GET",
+//                url: ctxFront + '/crm/keeper/account/list',
+//                // 传入已封装的参数
+//                data: function(data){
+//                    data.page = data.start / data.length + 1;
+//                    data.limit = data.length;
+//                    // 右上角搜索
+//                    data.keyword = data.search.value;
+//                    data.version = CONSTANT.APISERVER.KEEPER;
+//                    delete data.columns;
+//                },
+//                dataType: "json",
+//                dataSrc : function(result) {
+//                    // 后台不实现过滤功能，每次查询均视作全部结果
+//                    result.recordsTotal = result.data.totalCount;
+//                    result.recordsFiltered = result.data.totalCount || 0;
+//                    result.data = result.data.kavs || {};
+//                    delete result.data.totalCount;
+//                    delete result.data.kavs;
+//                    return result.data;
+//                }
+//            },
+//            columns : [
+//                CONSTANT.DATA_TABLES.COLUMN.CHECKBOX,
+//                {
+//                    data : null,
+//                    bSortable : false,
+//                    targets : 0,
+//                    width : "30px",
+//                    render : function(data, type, row, meta) {
+//                        // 显示行号
+//                        var startIndex = meta.settings._iDisplayStart;
+//                        return startIndex + meta.row + 1;
+//                    }
+//                },
+//                {
+//                    data : 'name',
+//                    bSortable : false,
+//                    width : "130px",
+//                }, {
+//                    data : 'passportv.sex',
+//                    bSortable : false,
+//                    width : "30px",
+//                    className : "text-center",
+//                    render : function(data, type, row, meta) {
+//                        return getKeeperUserSex(data);
+//                    }
+//                }, {
+//                    data : '.passportv.phone',
+//                    bSortable : false,
+//                    width : "60px",
+//                    className : "text-center",
+//                    render : function(data, type, row, meta) {
+//                        data = data || "";
+//                        return '<span title="' + data + '">' + data + '</span>';
+//                    }
+//                }, {
+//                    data : 'storev.name',
+//                    bSortable : false,
+//                    width : "70px",
+//                    render : function(data, type, row, meta) {
+//                        data = data || "";
+//                        return '<span title="' + data + '">' + data + '</span>';
+//                    }
+//                }, {
+//                    data : 'position',
+//                    bSortable : false,
+//                    width : "60px",
+//                    render : function(data, type, row, meta) {
+//                        return getKeeperUserPosition(data);
+//                    }
+//                }, {
+//                    data : 'status',
+//                    bSortable : false,
+//                    width : "60px",
+//                    className : "text-center",
+//                    render : function(data, type, row, meta) {
+//                        return getKeeperUserStatus(data);
+//                    }
+//                }, {
+//                    data : 'creationDate',
+//                    bSortable : false,
+//                    width : "130px",
+//                    className : "text-center",
+//                    render : function(data, type, row, meta) {
+//                        return dateForamtToString(data, 'yyyy-MM-dd hh:mm:ss');
+//                    }
+//                }, {
+//                    data : 'operate',
+//                    bSortable : false,
+//                    visible : true,
+//                    width : '200px',
+//                    render : function(data, type, full) {
+//
+//                        if (!full.passportv) {
+//                            return '';
+//                        }
+//
+//                        var edit = '<button onclick="editKeeperUserInfo(' + full.passportv.id + ')" class="btn btn-sm green btn-outline filter-submit margin-bottom">修改</button>';
+//                        var del = '<button onclick="deleteKeeperUser(' + full.passportv.id + ');" class="btn btn-sm red btn-outline filter-cancel">删除</button>';
+//                        var stop = '<button onclick="stopKeeperUser(' + full.passportv.id + ');" class="btn btn-sm red btn-outline filter-cancel">冻结</button>';
+//                        var unseal = '<button onclick="unsealKeeperUser(' + full.passportv.id + ');" class="btn btn-sm red btn-outline filter-cancel">解冻</button>';
+//                        var detail = '<a target="_blank" href="' + ctxFront + '/crm/keeper/account/info?id=' + full.passportv.id + '" class="btn btn-sm purple btn-outline filter-cancel">详情</a>';
+//
+//                        var result = edit;
+//
+//                        if(full.status == 0){
+//                            result += stop + del + detail;
+//                        }else if(full.status == 1){
+//                            result += unseal + del + detail;
+//                        }
+//                        return result;
+//                    }
+//                }
+//            ],
+//            drawCallback : function() {
+//                // 取消全选
+//                $(":checkbox[name='keeperUserGroup-checkable']").prop('checked', false);
+//            },
+//            createdRow : function(row, data, dataIndex) {
+//
+//                if (data.status == 1) {
+//                    // 已冻结
+//                    $(row.children[7]).addClass('danger');
+//                } else if (data.status == 2) {
+//                    // 已停用
+//                    $(row.children[7]).addClass('warning');
+//                } else if (data.status == 3) {
+//                    // 已注销
+//                    $(row.children[7]).addClass('error');
+//                }
+//            },
+//            buttons : [
+//                {
+//                    text : '<li class="fa fa-plus"></li> 新增',
+//                    titleAttr : '新增管家账号',
+//                    className : "btn green",
+//                    action: function ( e, dt, node, config ) {
+//                        keeperUserIsupdate = false;
+//                        clearKeeperUserFormData();
+//                        // 重置form校验
+//                        FormValidation.resetForm();
+//                        $('#editKeeperUserWin .modal-title').text('新增管家信息');
+//                        $('#editKeeperUserWin').modal('show');
+//                    }
+//                }, {
+//                    text : '<li class="fa fa-search"></li> 搜索',
+//                    titleAttr : '按条件搜索',
+//                    className : "btn btn-sm green btn-outline filter-submit margin-bottom",
+//                    action: function ( e, dt, node, config ) {
+//                        $('#queryKeeperUserWin').modal({
+//                            show : true
+//                        });
+//                    }
+//                }, {
+//                    extend : "print",
+//                    className : "btn dark btn-outline"
+//                }, {
+//                    extend : "pdf",
+//                    className : "btn green btn-outline"
+//                }, {
+//                    extend : "excel",
+//                    className : "btn yellow btn-outline"
+//                }
+//            ],
+//            dom:"<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>"
+//
+//        });
+//
+//        // 如果 scrollX : true 使用这个$('#keeperUserList_wrapper').on("change", ":checkbox", function() {
+//        // 如果 scrollX : false $('#keeperUserList').on("change", ":checkbox", function() {
+//        // 因为  scrollX : true 为true加了滚动条，表头和表体成了两个表格，这个可以查看代码就知道
+//        $('#keeperUserList_wrapper').on("change", ":checkbox", function() {
+//            // 列表复选框
+//            if ($(this).is("[name='keeperUserGroup-checkable']")) {
+//                // 全选
+//                $(":checkbox", '#keeperUserList').prop("checked",$(this).prop("checked"));
+//            }else{
+//                // 一般复选
+//                var checkbox = $("tbody :checkbox", '#keeperUserList');
+//                $(":checkbox[name='cb-check-all']", '#keeperUserList').prop('checked', checkbox.length == checkbox.filter(':checked').length);
+//            }
+//        }).on('preXhr.dt', function(e, settings, dable) {
+//            // ajax 请求之前事件
+//            data.page = data.start / data.length + 1;
+//            data.limit = data.length;
+//            data.version = CONSTANT.APISERVER.KEEPER;
+//            delete data.columns;
+//        });
+//
+//        // 搜索框事件
+//        $('#keeperUserList_filter input').unbind().keyup(function() {
+//
+//            var params = {};
+//
+//            if ($(this).val().trim()) {
+//                params.keyword = $(this).val().trim();
+//            }
+//            keeperUserList.settings()[0].ajax.data = params;
+//            keeperUserList.ajax.reload();
+//        });
+//
+//    }
+//
+//    /**
+//     * 搜索 这个搜索解决datatable自定义搜索
+//     */
+//    function queryKeeperUserList() {
+//
+//        // 添加参数
+//        var params = {};
+//
+//        if ($('#queryKeeperUserName').val()) {
+//            params.name = $('#queryKeeperUserName').val();
+//        }
+//        if ($('#queryKeeperUserPhone').val()) {
+//            params.phone = $('#queryKeeperUserPhone').val();
+//        }
+//        if ($('#queryKeeperUserStatus').val() != '') {
+//            params.status = $('#queryKeeperUserStatus').val();
+//        }
+//        if ($('#queryKeeperUserPosition').val() != '') {
+//            params.position = $('#queryKeeperUserPosition').val();
+//        }
+//        if ($('#queryKeeperUserOrderBy').val()) {
+//            params.orderBy = $('#queryKeeperUserOrderBy').val();
+//        }
+//
+//        keeperUserList.settings()[0].ajax.data = params;
+//        keeperUserList.ajax.reload();
+//        $('#queryKeeperUserWin').modal('hide');
+//    }
+    console.log($('#form').serialize())
+</script>
+</body>
+</html>

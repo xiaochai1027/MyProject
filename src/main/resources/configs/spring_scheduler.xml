@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id= "productStatusJobTask" class ="com.mwb.scheduler.ProductStatusJobTask"/>
+
+    <bean id= "productStatusTaskMethod"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="productStatusJobTask"/>
+        <property name="targetMethod" value="run"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id= "productStatusTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean" >
+        <property name="jobDetail" ref="productStatusTaskMethod" />
+        <!-- 每小时 -->
+        <property name="cronExpression" value="0 0 0/1 * * ?" />
+    </bean>
+
+    <bean id= "productCouponNumberJobTask" class ="com.mwb.scheduler.ProductCouponNumberJobTask"/>
+
+    <bean id= "productCouponNumberTaskMethod"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="productCouponNumberJobTask"/>
+        <property name="targetMethod" value="run"/>
+        <property name="concurrent" value="false"/>
+    </bean>
+
+    <bean id= "productCouponNumberTaskTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean" >
+        <property name="jobDetail" ref="productCouponNumberTaskMethod" />
+        <!-- 每日2点 -->
+        <property name="cronExpression" value="0 0 2 * * ?" />
+    </bean>
+
+    <bean id= "schedulerFactoryBean"
+          class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers" >
+            <list>
+                <ref bean="productStatusTaskTrigger" />
+                <ref bean="productCouponNumberTaskTrigger" />
+            </list>
+        </property>
+    </bean>
+</beans>
