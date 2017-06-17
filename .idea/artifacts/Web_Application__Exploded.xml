@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="unnamed">
+  <artifact type="exploded-war" build-on-make="true" name="Web Application: Exploded">
     <output-path>$PROJECT_DIR$/target/MyProject-1.0</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -7,6 +7,7 @@
           <element id="module-output" name="MyProject" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="MyProject/web/Web" />
     </root>
   </artifact>
 </component>

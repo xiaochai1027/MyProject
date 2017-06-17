@@ -46,5 +46,16 @@ public class DateTimeTest {
 //        DateTimeFormatter newFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 //        LocalDate date2 = LocalDate.now();
 //        System.out.println(date2.format(newFormatter));
+
+        // 打印昨天当前时刻
+        Calendar cal3 = Calendar.getInstance();
+        cal3.add(Calendar.DATE, -1);
+        System.out.println(cal3.getTime());
+        try{
+
+        }finally {
+
+        }
+
     }
 }
