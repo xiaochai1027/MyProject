@@ -1,4 +1,4 @@
-package cfc.test;
+package cfc.test.throwss;
 
 /**
  * Created by fangchen.chai on 2017/6/17.
